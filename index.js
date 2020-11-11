@@ -71,11 +71,11 @@ async function run(token, protocol, port) {
 
 
   if (protocol == "tcp") {
-    let server = output.trimStart("tcp://").split(":")[0];
+    let server = output.replace("tcp://", "").split(":")[0];
     core.info("server: " + server);
     core.setOutput("server", server);
 
-    let port = output.trimStart("tcp://").split(":")[1];
+    let port = output.replace("tcp://", "").split(":")[1];
     core.info("port: " + port);
     core.setOutput("port", port);
 
