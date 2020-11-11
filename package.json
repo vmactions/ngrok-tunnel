@@ -1,0 +1,27 @@
+{
+  "name": "ngrok-tunnel",
+  "version": "0.0.1",
+  "description": "ngrok-tunnel",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmactions/ngrok-tunnel.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "ngrok"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vmactions/ngrok-tunnel/issues"
+  },
+  "homepage": "https://github.com/vmactions/ngrok-tunnel",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/io": "^1.0.2",
+    "@actions/tool-cache": "^1.6.0",
+    "@actions/exec": "^1.0.4"
+  }
+}
