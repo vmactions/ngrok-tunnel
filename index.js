@@ -129,6 +129,7 @@ async function main() {
   await run(token, protocol, port);
 
 
+  process.exit();
 }
 
 
