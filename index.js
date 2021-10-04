@@ -30,7 +30,7 @@ async function download() {
     //
     cmd="7z.exe"
     //cmd = "c:\\\"Program Files\"\\7-zip\\7z.exe"
-    process.env.path = process.env.path + ";c:\\Program Files\\7-zip"
+    process.env.path = process.env.path + ";c:/Program Files/7-zip"
   }
 
 
@@ -50,15 +50,15 @@ async function download() {
 
 async function run(token, protocol, port) {
   let workingDir = __dirname;
-
   let ngrok = path.join(workingDir, "./ngrok")
   if (os.platform() == "win32") {
-    ngrok += ".exe";
+    ngrok += "ngrok.exe";
+    process.env.path = process.env.path + ";" + workingDir;
   }
 
   await exec.exec(ngrok, ["authtoken", token]);
 
-  let log = path.join(workingDir, "./ngrok.log");
+  let log = path.join("ngrok.log");
 
   await exec.exec("sh", [], { input: `${ngrok} ${protocol} ${port} --log ${log} &` });
 
