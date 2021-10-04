@@ -52,7 +52,7 @@ async function run(token, protocol, port) {
   let workingDir = __dirname;
   let ngrok = path.join(workingDir, "./ngrok")
   if (os.platform() == "win32") {
-    ngrok += "ngrok.exe";
+    ngrok = "ngrok.exe";
     process.env.path = process.env.path + ";" + workingDir;
   }
 
