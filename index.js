@@ -5,6 +5,7 @@ const io = require('@actions/io');
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
+const { env } = require('process');
 
 
 async function sleep(ms) {
@@ -19,11 +20,17 @@ async function download() {
   NGROK_BSD = "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-freebsd-amd64.zip"
 
 
+  let cmd="7za";
   let link = NGROK_Win;
   if (os.platform() == "darwin") {
     link = NGROK_MAC;
   } else if (os.platform() == "linux") {
     link = NGROK_Linux;
+  } else {
+    //
+    cmd="7z.exe"
+    //cmd = "c:\\\"Program Files\"\\7-zip\\7z.exe"
+    process.env.path = process.env.path + ";c:\\Program Files\\7-zip"
   }
 
 
@@ -36,7 +43,7 @@ async function download() {
 
   }
 
-  await exec.exec("7za e -y " + path.join(workingDir, "./ngrok.zip") + "  -o" + workingDir);
+  await exec.exec(cmd + " e -y " + path.join(workingDir, "./ngrok.zip") + "  -o" + workingDir);
 
 
 }
