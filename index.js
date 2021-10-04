@@ -58,7 +58,7 @@ async function run(token, protocol, port) {
 
   await exec.exec(ngrok, ["authtoken", token]);
 
-  let log = path.join("ngrok.log");
+  let log = "ngrok.log";
 
   await exec.exec("sh", [], { input: `${ngrok} ${protocol} ${port} --log ${log} &` });
 
